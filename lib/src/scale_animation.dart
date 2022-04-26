@@ -16,6 +16,10 @@ class ScaleAnimation extends StatelessWidget {
   /// Scaling factor to apply at the start of the animation.
   final double scale;
 
+  final bool scaleX;
+
+  final bool scaleY;
+
   /// The child Widget to animate.
   final Widget child;
 
@@ -30,8 +34,10 @@ class ScaleAnimation extends StatelessWidget {
     this.delay,
     this.curve = Curves.ease,
     this.scale = 0.0,
+    this.scaleX = false,
+    this.scaleY = false,
     required this.child,
-  })   : assert(scale >= 0.0),
+  })  : assert(scale >= 0.0),
         super(key: key);
 
   @override
@@ -50,9 +56,13 @@ class ScaleAnimation extends StatelessWidget {
         curve: Interval(0.0, 1.0, curve: curve),
       ),
     );
-
+    print("EDITADOOOOO");
     return Transform.scale(
-      scale: _landingAnimation.value,
+      alignment: Alignment.centerLeft,
+      scaleX: scaleX ? _landingAnimation.value : null,
+      scaleY: scaleY ? _landingAnimation.value : null,
+      scale:
+          (scaleX == false && scaleY == false) ? _landingAnimation.value : null,
       child: child,
     );
   }
