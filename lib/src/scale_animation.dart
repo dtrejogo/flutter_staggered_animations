@@ -56,7 +56,6 @@ class ScaleAnimation extends StatelessWidget {
         curve: Interval(0.0, 1.0, curve: curve),
       ),
     );
-    print("EDITADOOOOO");
     return Transform.scale(
       alignment: Alignment.centerLeft,
       scaleX: scaleX ? _landingAnimation.value : null,
